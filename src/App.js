@@ -7,7 +7,10 @@ import Statistics from "./components/Statistics/Statistics";
 
 export default class App extends Component {
   // static propTypes = {};
-  // static defaultProp = {};
+  static defaultProp = {
+    step: 1,
+    initialValue: 0,
+  };
 
   state = {
     good: 0,
@@ -27,24 +30,29 @@ export default class App extends Component {
     return positivePercentage;
   };
 
+  handleIncrement = (event) => {
+    this.setState((prevState) => {
+      console.log("prevState", prevState);
+      console.log("prevState.good", prevState.good);
+      console.log(event.target);
+      return { good: prevState.good + 1 };
+    });
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
     return (
       <>
-        {this.countTotalFeedback() === 0 ? (
-          <Notification message="No feedback given" />
-        ) : (
-          <Section title>
-            <FeedbackOptions />
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
-          </Section>
-        )}
+        <Section title>
+          <FeedbackOptions onIncrement={this.handleIncrement} />
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        </Section>
       </>
     );
   }
