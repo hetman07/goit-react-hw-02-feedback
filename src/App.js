@@ -30,12 +30,12 @@ export default class App extends Component {
     return positivePercentage;
   };
 
-  handleIncrement = (event) => {
+  handleIncrement = (e) => {
+    const field = e.currentTarget.dataset.row;
     this.setState((prevState) => {
-      console.log("prevState", prevState);
-      console.log("prevState.good", prevState.good);
-      console.log(event.target);
-      return { good: prevState.good + 1 };
+      return {
+        [field]: prevState[field] + 1,
+      };
     });
   };
 
@@ -44,15 +44,15 @@ export default class App extends Component {
     return (
       <>
         <Section title>
-          <FeedbackOptions onIncrement={this.handleIncrement} />
+          <FeedbackOptions onIncrement={this.handleIncrement} />{" "}
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             total={this.countTotalFeedback()}
             positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        </Section>
+          />{" "}
+        </Section>{" "}
       </>
     );
   }
