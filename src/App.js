@@ -34,7 +34,7 @@ export default class App extends Component {
     this.setState((prevState) => {
       console.log("prevState", prevState);
       console.log("prevState.good", prevState.good);
-      console.log(event.target);
+      console.log([event.target]);
       return { good: prevState.good + 1 };
     });
   };
