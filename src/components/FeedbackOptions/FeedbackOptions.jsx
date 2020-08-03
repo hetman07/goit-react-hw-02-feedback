@@ -8,15 +8,25 @@ export default function FeedbackOptions({ onIncrement }) {
       <button
         type="button"
         className="Feedback-button"
+        data-row="good"
         onClick={onIncrement}
-        name="good"
       >
         Good
       </button>
-      <button type="button" className="Feedback-button">
+      <button
+        type="button"
+        className="Feedback-button"
+        data-row="neutral"
+        onClick={onIncrement}
+      >
         Neutral
       </button>
-      <button type="button" className="Feedback-button">
+      <button
+        type="button"
+        className="Feedback-button"
+        data-row="bad"
+        onClick={onIncrement}
+      >
         Bad
       </button>
     </div>
