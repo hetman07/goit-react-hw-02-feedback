@@ -19,7 +19,8 @@ export default class App extends Component {
   };
 
   countTotalFeedback = () => {
-    let total = this.state.good + this.state.neutral + this.state.bad;
+    let total = Object.values(this.state).reduce((acc, item) => acc + item, 0);
+    // let total = this.state.good + this.state.neutral + this.state.bad;
     return total;
   };
 
@@ -31,7 +32,7 @@ export default class App extends Component {
   };
 
   handleIncrement = (e) => {
-    const field = e.currentTarget.dataset.row;
+    const field = e.target.dataset.row;
     this.setState((prevState) => {
       return {
         [field]: prevState[field] + 1,
