@@ -4,7 +4,7 @@ import styles from "./Section.modules.css";
 
 const Section = ({ title, children }) => {
   return (
-    <section className="feedback">
+    <section className={styles.feedback}>
       {title && <h2> Please leave feedback </h2>}
       {children}
     </section>

@@ -4,10 +4,10 @@ import styles from "./FeedbackOptions.modules.css";
 
 export default function FeedbackOptions({ onIncrement }) {
   return (
-    <div className="div-button">
+    <div className={styles.divButton}>
       <button
         type="button"
-        className="Feedback-button"
+        className={styles.FeedbackButton}
         data-row="good"
         onClick={onIncrement}
       >
@@ -15,7 +15,7 @@ export default function FeedbackOptions({ onIncrement }) {
       </button>
       <button
         type="button"
-        className="Feedback-button"
+        className={styles.FeedbackButton}
         data-row="neutral"
         onClick={onIncrement}
       >
@@ -23,7 +23,7 @@ export default function FeedbackOptions({ onIncrement }) {
       </button>
       <button
         type="button"
-        className="Feedback-button"
+        className={styles.FeedbackButton}
         data-row="bad"
         onClick={onIncrement}
       >
@@ -31,4 +31,8 @@ export default function FeedbackOptions({ onIncrement }) {
       </button>
     </div>
   );
+}
+
+FeedbackOptions.propTypes = {
+  onIncrement: PropTypes.func
 }
