@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import Section from "./Section/Section";
-import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
-import Statistics from "./Statistics/Statistics";
+import Section from "./components/Section";
+import FeedbackOptions from "./components/FeedbackOptions";
+import Statistics from "./components/Statistics";
 
 export default class App extends Component {
   static propTypes = {
@@ -15,12 +15,6 @@ export default class App extends Component {
     countTotalFeedback: PropTypes.func,
     countPositiveFeedbackPercentage: PropTypes.func,
     handleIncrement: PropTypes.func,
-  };
-
-  static defaultProp = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
   };
 
   state = {

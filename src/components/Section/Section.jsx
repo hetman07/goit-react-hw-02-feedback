@@ -11,10 +11,6 @@ const Section = ({ title, children }) => {
   );
 };
 
-Section.defaultProps = {
-  title: false,
-};
-
 Section.propTypes = {
   title: PropTypes.bool,
   children: PropTypes.node.isRequired,
